@@ -1,92 +1,127 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Photo Projects – olvz</title>
-<style>
-    /* Fade-In Transition */
-    /* Loading Screen */
-    .loading-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photo Projects – olvz</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0d1117;
+      color: #c9d1d9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: #161b22;
+    }
+
+    header h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .photo-card {
+      background-color: #161b22;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      z-index: 1000;
-      color: white;
-      font-size: 1.5rem;
-      opacity: 1;
-      transition: opacity 0.3s ease;
     }
 
-    /* Spinner Animation */
-    .spinner {
-      border: 4px solid rgba(255, 255, 255, 0.3);
-      border-top: 4px solid white;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
+    .photo-card:hover {
+      transform: scale(1.02);
     }
 
-    /* Keyframes for spinner rotation */
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .photo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-bottom: 1px solid #2f2f2f;
     }
 
-    /* Fade-In Effect */
-body {
-font-family: 'Segoe UI', sans-serif;
-background: #0d1117;
-color: #c9d1d9;
-margin: 0;
-padding: 0;
-opacity: 0;
-      animation: fadeIn 0.6s ease-in-out forwards;
-      transition: opacity 0.6s ease-in-out;
+    .caption {
+      padding: 0.8rem 1rem;
+      text-align: center;
     }
 
-    body.fade-in {
-      opacity: 1;
-}
-
-header {
-@@ -86,18 +124,14 @@
-border-radius: 8px;
-text-align: center;
-}
-
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
+    .caption h3 {
+      margin: 0.2rem 0 0.4rem;
+      font-size: 1.1rem;
+      color: #58a6ff;
     }
-</style>
+
+    .caption p {
+      font-size: 0.9rem;
+      color: #8b949e;
+    }
+
+    .back-container {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #238636;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <!-- Loading Screen -->
-  <div class="loading-screen">
-    <div class="spinner"></div>
-    <p>Loading...</p>
-  </div>
 
-<header>
-<h1>Photo Projects</h1>
-@@ -135,5 +169,10 @@ <h3>Where Magic Happens</h3>
-<a class="back-btn" href="index.html">← Back to Home</a>
-</div>
+  <header>
+    <h1>Photo Projects</h1>
+    <p>A collection of visuals from my work and explorations.</p>
+  </header>
+
+  <section class="gallery">
+    <!-- Photo Card Example -->
+    <div class="photo-card">
+      <img src="images/photo1.jpg" alt="Sunset shot" />
+      <div class="caption">
+        <h3>Golden Hour</h3>
+        <p>Shot this one while testing a lighting algorithm for a Discord bot UI concept.</p>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <img src="images/photo2.jpg" alt="Bot architecture sketch" />
+      <div class="caption">
+        <h3>Sketch to Code</h3>
+        <p>Early whiteboard sketch for a message parser system.</p>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <img src="images/photo3.jpg" alt="Workspace photo" />
+      <div class="caption">
+        <h3>Where Magic Happens</h3>
+        <p>My little setup. Lots of bots got born here.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="back-container">
+    <a class="back-btn" href="index.html">← Back to Home</a>
+  </div>
 
 </body>
 </html>
-  <script>
-    window.addEventListener('load', function () {
-      // Hide the loading screen with fade-out effect
-      document.querySelector('.loading-screen').style.opacity = '0';
-
-      setTimeout(function() {
-        // Completely hide
