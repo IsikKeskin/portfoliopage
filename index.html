@@ -25,6 +25,12 @@
       min-height: 100vh;
       padding: 2rem;
       text-align: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    body.loaded {
+      opacity: 1;
     }
 
     h1 {
@@ -63,10 +69,17 @@
     }
   </style>
 </head>
-<body>
+<body class="transition">
+
   <h1>Hey, I’m olvz 👋</h1>
   <p>I create advanced Discord bots with a focus on performance, scalability, and a clean user experience. Whether you're looking for moderation, utility, or entertainment bots, I bring your ideas to life with clean code and creativity.</p>
   <a class="button" href="projects.html">See My Work</a>
   <footer>Built with ❤️ by olvz</footer>
+
+  <script>
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
 </body>
 </html>
