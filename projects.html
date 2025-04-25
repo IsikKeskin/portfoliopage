@@ -1,156 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Photo Projects – olvz</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #0d1117;
-      color: #c9d1d9;
-      margin: 0;
-      padding: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in;
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Photo Projects – olvz</title>
+<style>
+    /* Fade-In Transition */
+body {
+font-family: 'Segoe UI', sans-serif;
+background: #0d1117;
+color: #c9d1d9;
+margin: 0;
+padding: 0;
+opacity: 0;
+      transition: opacity 1s ease-in-out;
     }
 
-    header {
-      text-align: center;
-      padding: 2rem;
-      background-color: #161b22;
-    }
+    body.loaded {
+      opacity: 1;
+      animation: fadeIn 0.6s ease-in-out forwards;
+}
 
-    header h1 {
-      margin-bottom: 0.5rem;
-    }
+header {
+@@ -89,6 +86,15 @@
+border-radius: 8px;
+text-align: center;
+}
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
-      padding: 2rem;
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
-
-    .photo-card {
-      background-color: #161b22;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: transform 0.2s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .photo-card:hover {
-      transform: scale(1.02);
-    }
-
-    .photo-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-bottom: 1px solid #2f2f2f;
-    }
-
-    .caption {
-      padding: 0.8rem 1rem;
-      text-align: center;
-    }
-
-    .caption h3 {
-      margin: 0.2rem 0 0.4rem;
-      font-size: 1.1rem;
-      color: #58a6ff;
-    }
-
-    .caption p {
-      font-size: 0.9rem;
-      color: #8b949e;
-    }
-
-    .back-container {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .back-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #238636;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    /* Loading screen */
-    #loading {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 2rem;
-      z-index: 9999;
-    }
-  </style>
+</style>
 </head>
 <body>
+@@ -99,6 +105,7 @@ <h1>Photo Projects</h1>
+</header>
 
-  <div id="loading">Loading...</div>
-
-  <header>
-    <h1>Photo Projects</h1>
-    <p>A collection of visuals from my work and explorations.</p>
-  </header>
-
-  <section class="gallery">
+<section class="gallery">
     <!-- Photo Card Example -->
-    <div class="photo-card">
-      <img src="images/photo1.jpg" alt="Sunset shot" />
-      <div class="caption">
-        <h3>Golden Hour</h3>
-        <p>Shot this one while testing a lighting algorithm for a Discord bot UI concept.</p>
-      </div>
-    </div>
-
-    <div class="photo-card">
-      <img src="images/photo2.jpg" alt="Bot architecture sketch" />
-      <div class="caption">
-        <h3>Sketch to Code</h3>
-        <p>Early whiteboard sketch for a message parser system.</p>
-      </div>
-    </div>
-
-    <div class="photo-card">
-      <img src="images/photo3.jpg" alt="Workspace photo" />
-      <div class="caption">
-        <h3>Where Magic Happens</h3>
-        <p>My little setup. Lots of bots got born here.</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="back-container">
-    <a class="back-btn" href="index.html">← Back to Home</a>
-  </div>
+<div class="photo-card">
+<img src="images/photo1.jpg" alt="Sunset shot" />
+<div class="caption">
+@@ -128,11 +135,5 @@ <h3>Where Magic Happens</h3>
+<a class="back-btn" href="index.html">← Back to Home</a>
+</div>
 
   <script>
-    // Wait until all images are loaded
-    window.onload = function () {
-      // Hide the loading screen
-      document.getElementById('loading').style.display = 'none';
-      // Fade in the page content
-      document.body.style.opacity = '1';
-    };
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
   </script>
 
 </body>
