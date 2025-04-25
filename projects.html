@@ -2,44 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Photo Projects – olvz</title>
   <style>
-    /* Loading Screen */
-    .loading-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      color: white;
-      font-size: 1.5rem;
-      opacity: 1;
-      transition: opacity 0.3s ease;
-    }
-
-    /* Spinner Animation */
-    .spinner {
-      border: 4px solid rgba(255, 255, 255, 0.3);
-      border-top: 4px solid white;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-    }
-
-    /* Keyframes for spinner rotation */
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    /* Fade-In Effect */
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #0d1117;
@@ -47,11 +12,7 @@
       margin: 0;
       padding: 0;
       opacity: 0;
-      transition: opacity 0.6s ease-in-out;
-    }
-
-    body.fade-in {
-      opacity: 1;
+      transition: opacity 1s ease-in;
     }
 
     header {
@@ -124,14 +85,27 @@
       border-radius: 8px;
       text-align: center;
     }
+
+    /* Loading screen */
+    #loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      z-index: 9999;
+    }
   </style>
 </head>
 <body>
-  <!-- Loading Screen -->
-  <div class="loading-screen">
-    <div class="spinner"></div>
-    <p>Loading...</p>
-  </div>
+
+  <div id="loading">Loading...</div>
 
   <header>
     <h1>Photo Projects</h1>
@@ -170,9 +144,14 @@
   </div>
 
   <script>
-    window.addEventListener('load', function () {
-      // Hide the loading screen with fade-out effect
-      document.querySelector('.loading-screen').style.opacity = '0';
+    // Wait until all images are loaded
+    window.onload = function () {
+      // Hide the loading screen
+      document.getElementById('loading').style.display = 'none';
+      // Fade in the page content
+      document.body.style.opacity = '1';
+    };
+  </script>
 
-      setTimeout(function() {
-        // Completely hide
+</body>
+</html>
