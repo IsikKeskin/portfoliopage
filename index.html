@@ -1,41 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Discord Bot Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to olvz.xyz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .upload-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px dashed #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .upload-section input {
+            display: none;
+        }
+        .upload-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .upload-btn:hover {
+            background-color: #45a049;
+        }
+        .file-list {
+            margin-top: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+        .file-list li {
+            margin: 5px 0;
+            padding: 8px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .file-list li span {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body>
+    <header>
+        <h1>Welcome to olvz.xyz</h1>
+        <p>Your personal portfolio and file upload page</p>
+    </header>
 
-  <div class="min-h-screen flex flex-col items-center justify-center px-4">
-    <h1 class="text-4xl font-bold text-blue-400 mb-2">Hey, I'm [Your Name]</h1>
-    <p class="text-lg mb-6 text-gray-300">Discord Bot Developer | Python & JavaScript</p>
+    <div class="container">
+        <h2>Upload Files</h2>
+        <div class="upload-section">
+            <label for="file-upload" class="upload-btn">Choose Files</label>
+            <input type="file" id="file-upload" multiple>
+            <p>Drag and drop your files here or click to browse.</p>
+        </div>
 
-    <div class="bg-gray-800 p-6 rounded-xl shadow-md max-w-xl w-full">
-      <h2 class="text-2xl font-semibold mb-4 text-blue-300">About Me</h2>
-      <p class="text-gray-200 mb-4">
-        I’m a self-taught Discord bot developer with experience using <strong>discord.py</strong> and <strong>Node.js</strong>.
-        I've created bots for moderation, reaction roles, welcome systems, and more.
-        I enjoy building tools that make servers more fun and functional.
-      </p>
-
-      <h2 class="text-2xl font-semibold mb-4 text-blue-300">What I've Built</h2>
-      <ul class="list-disc list-inside text-gray-200 space-y-2">
-        <li>Custom moderation bots with logging and role management</li>
-        <li>Fun bots with API integration (weather, jokes, game stats)</li>
-        <li>Economy and leveling systems using MongoDB</li>
-        <li>Utility bots with uptime monitoring and command menus</li>
-      </ul>
-
-      <h2 class="text-2xl font-semibold mt-6 mb-4 text-blue-300">Contact Me</h2>
-      <p class="text-gray-300">Feel free to reach out via Discord: <strong>yourDiscordTag#0000</strong></p>
+        <h3>Uploaded Files:</h3>
+        <ul class="file-list" id="file-list">
+            <!-- File list will appear here -->
+        </ul>
     </div>
 
-    <footer class="mt-8 text-gray-500 text-sm">
-      © 2025 [Your Name]
-    </footer>
-  </div>
+    <script>
+        const fileInput = document.getElementById('file-upload');
+        const fileList = document.getElementById('file-list');
 
+        // Handle file selection
+        fileInput.addEventListener('change', (event) => {
+            const files = event.target.files;
+            if (files.length > 0) {
+                displayFiles(files);
+            }
+        });
+
+        // Display files in the list
+        function displayFiles(files) {
+            // Clear current list
+            fileList.innerHTML = '';
+            
+            // Loop through the selected files and add them to the list
+            Array.from(files).forEach(file => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span>${file.name} (${(file.size / 1024).toFixed(2)} KB)</span>
+                    <button onclick="removeFile(event)">Remove</button>
+                `;
+                fileList.appendChild(li);
+            });
+        }
+
+        // Remove file from the list
+        function removeFile(event) {
+            const listItem = event.target.parentNode;
+            listItem.remove();
+        }
+    </script>
 </body>
 </html>
