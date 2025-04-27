@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Photos of a few of my Projects – olvz</title>
+  <link rel="icon" href="favicon.png" type="image/png">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -23,7 +24,6 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Gallery Grid */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
@@ -31,7 +31,6 @@
       padding: 2rem;
     }
 
-    /* Photo Card Styling */
     .photo-card {
       background-color: #161b22;
       border-radius: 12px;
@@ -41,13 +40,12 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start; 
-      height: 100%; 
+      height: 100%;
     }
 
     .photo-card:hover {
       transform: scale(1.02);
     }
-
 
     .caption {
       padding: 1rem;
@@ -65,12 +63,11 @@
       color: #8b949e;
     }
 
-    /* Image */
     .photo-card img {
       width: 100%;
       height: auto;
       display: block;
-      object-fit: contain; 
+      object-fit: contain;
       border-top: 1px solid #2f2f2f;
     }
 
@@ -90,6 +87,17 @@
       text-align: center;
     }
 
+    .caption h3 a {
+      color: #58a6ff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .caption h3 a:hover {
+      text-decoration: underline;
+    }
+
     @media (min-width: 768px) {
       .gallery {
         grid-template-columns: repeat(3, 1fr); 
@@ -106,11 +114,13 @@
 <body>
 
   <header>
-    <h1> Projects Photo's </h1>
+    <h1>Projects Photo's</h1>
     <p>A collection of visuals from my sample works.</p>
   </header>
 
   <section class="gallery">
+
+    <!-- Music Bot (No link) -->
     <div class="photo-card">
       <div class="caption">
         <h3>Zeros - A Music Bot</h3>
@@ -119,21 +129,38 @@
       <img src="images/Zeros.png" alt="Zeros" />
     </div>
 
+    <!-- Moderation Bot -->
     <div class="photo-card">
       <div class="caption">
-        <h3>Zeros 2.0 - A Moderation Bot</h3>
+        <h3>
+          <a href="https://github.com/IsikKeskin/mod-bot" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 6px;" width="20" height="20" fill="#58a6ff" viewBox="0 0 24 24">
+              <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.8-1.4-3.8-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 .1 2.1-.5 2.6-1 .1-.8.4-1.4.7-1.7-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3 0 0 1-.3 3.3 1.2.9-.2 1.8-.3 2.7-.3s1.8.1 2.7.3c2.3-1.5 3.3-1.2 3.3-1.2.6 1.5.2 2.7.1 3 .8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.7 1.1.7 2.2v3.2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.65 18.35.5 12 .5z"/>
+            </svg>
+            Zeros 2.0 - A Moderation Bot
+          </a>
+        </h3>
         <p>A moderation bot built specifically at a server owner's request.</p>
       </div>
       <img src="images/zeros moderation.png" alt="zeros moderation" />
     </div>
 
+    <!-- Economy Bot -->
     <div class="photo-card">
       <div class="caption">
-        <h3>Zeros - An Economy Bot</h3>
+        <h3>
+          <a href="https://github.com/IsikKeskin/economy-bot" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 6px;" width="20" height="20" fill="#58a6ff" viewBox="0 0 24 24">
+              <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.8-1.4-3.8-1.4-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.6 1.1 1.6 1.1 1 .1 2.1-.5 2.6-1 .1-.8.4-1.4.7-1.7-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3 0 0 1-.3 3.3 1.2.9-.2 1.8-.3 2.7-.3s1.8.1 2.7.3c2.3-1.5 3.3-1.2 3.3-1.2.6 1.5.2 2.7.1 3 .8.9 1.2 1.9 1.2 3.2 0 4.5-2.7 5.5-5.3 5.8.4.4.7 1.1.7 2.2v3.2c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.65 18.35.5 12 .5z"/>
+            </svg>
+            Zeros - An Economy Bot
+          </a>
+        </h3>
         <p>You can gamble, buy stuff, race to the top of the leaderboard or just work with this bot.</p>
       </div>
       <img src="images/zeros economy.png" alt="Zeros economy" />
     </div>
+
   </section>
 
   <div class="back-container">
